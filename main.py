@@ -1,16 +1,44 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import pytest
+import allure
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def test_methodA():
+    allureLogs("Launching app")
+    allureLogs("This a Method A Step-1")
+    allureLogs("This a Method A Step-2")
+    print("This is method A")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def test_methodB():
+    print("This is method B")
+    allureLogs("This a Method B")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+@pytest.mark.skip
+def test_methodC():
+    print("This is method C")
+
+
+def test_methodD():
+    print("This is method D")
+    assert False
+
+
+def allureLogs(text):
+    with allure.step(text):
+        pass
+
+
+
+
+
+
+# class TestClass:
+#     def test_one(self):
+#         x = "this"
+#         assert "h" in x
+#
+#     def test_two(self):
+#         x = "hello"
+#         assert "h" in x
+#
